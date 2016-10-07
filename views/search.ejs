@@ -1,0 +1,21 @@
+<%- include header %>
+    <ul class="archive">
+        <% var lastYear = 0 %>
+            <% posts.forEach(function (post, index) { %>
+                <% if(lastYear != post.time.getFullYear()) { %>
+                    <li>
+                        <h3><%= post.time.getFullYear() %></h3></li>
+                    <% lastYear = post.time. getFullYear() } %>
+                        <li>
+                            <time>
+                                <%= post.time.toLocaleDateString() %>
+                            </time>
+                        </li>
+                        <li>
+                            <a href="/p/<%= post._id %>">
+                                <%= post.title %>
+                            </a>
+                        </li>
+        <% }) %>
+    </ul>
+<%- include footer %>
