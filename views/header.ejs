@@ -3,15 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Blog</title>
     <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/plugins/responsive-nav/advanced-left-navigation.css">
+    <script src="/plugins/responsive-nav/responsive-nav.min.js"></script>
 </head>
 
 <body>
-    <header>
+<!--     <header>
         <h1><%= title %></h1>
-    </header>
-    <nav>
+    </header> -->
+<!--     <nav>
         <span><a title="主页" href="/">home</a></span>
         <span><a title="存档" href="/archive">archive</a></span>
         <span><a title="标签" href="/tags">tags</a></span>
@@ -29,15 +32,34 @@
                 <input type="text" name="keyword" placeholder="SEARCH" class="search">
             </form>
         </span>
-    </nav>
-    <article>
+    </nav> -->
+    <div id="responsive-nav" class="nav-collapse">
+        <ul>
+            <li><a title="主页" href="/">home</a></li>
+            <li><a title="存档" href="/archive">archive</a></li>
+            <li><a title="标签" href="/tags">tags</a></li>
+            <li><a title="友情链接" href="/links">links</a></li>
+            <% if (user) { %>
+            <li><a title="上传" href="/upload">upload</a></li>
+            <li><a title="发表" href="/post">post</a></li>
+            <li><a title="登出" href="/logout">logout</a></li>
+             <% } else { %>
+            <li><a title="登录" href="/login">login</a></li>
+            <li><a title="注册" href="/reg">register</a></li>
+            <% } %>
+        </ul>
+    </div>
+    <article class="main">
+
+        <div><a href="" class="nav-toggle">Menu</a></div>
+        <h1><%= title %></h1>
         <% if (success) { %>
             <div>
                 <%= success %>
             </div>
-            <% } %>
-                <% if (error) { %>
-                    <div>
-                        <%= error %>
-                    </div>
-                    <% } %>
+        <% } %>
+        <% if (error) { %>
+            <div>
+                <%= error %>
+            </div>
+        <% } %>

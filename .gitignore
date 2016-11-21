@@ -6,4 +6,5 @@
 *.bat
 *.log
 /dbdata
+/data
 
